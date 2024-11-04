@@ -6,6 +6,7 @@ WORKDIR /app
 
 # Copy package.json and package-lock.json
 COPY package*.json ./
+COPY composer.json ./
 
 # Install frontend dependencies
 RUN npm install
@@ -14,11 +15,12 @@ RUN npm install
 COPY resources/js ./resources/js
 COPY resources/css ./resources/css
 COPY resources/views ./resources/views
-COPY webpack.mix.js ./
+COPY vite.config.js ./
+COPY tailwind.config.js ./
 
 RUN npm run build
 
-FROM php:8.1-fpm
+FROM php:8.2-fpm
 
 WORKDIR /var/www
 
@@ -27,6 +29,7 @@ RUN apt-get update && apt-get install -y \
     libpng-dev \
     libjpeg62-turbo-dev \
     libfreetype6-dev \
+    libonig-dev \
     locales \
     zip \
     jpegoptim optipng pngquant gifsicle \

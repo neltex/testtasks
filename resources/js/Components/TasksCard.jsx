@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 
 const TasksCard = ({ task }) => {
   const [isEditing, setIsEditing] = useState(false);
-  const [loading, setLoading] = useState(false);
   const [editedTask, setEditedTask] = useState({
     title: task.title,
     description: task.description,

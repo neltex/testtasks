@@ -24,10 +24,10 @@ services:
         container_name: mysql
         restart: unless-stopped
         environment:
-            MYSQL_ROOT_PASSWORD: your_root_password
-            MYSQL_DATABASE: your_database
-            MYSQL_USER: your_username
-            MYSQL_PASSWORD: your_password
+            MYSQL_ROOT_PASSWORD:
+            MYSQL_DATABASE:
+            MYSQL_USER:
+            MYSQL_PASSWORD: 
         ports:
             - '3306:3306'
         volumes:

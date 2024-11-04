@@ -3,11 +3,10 @@ Steps to run the project:
     - Run `npm install`
     - Run `php artisan migrate`
     - Run `php artisan serve`
+    - Run `npm run dev or npm run watch`
 
     With Docker:
-    - Run `docker-compose up -d`
-    - Run `docker-compose exec app php artisan migrate`
-    - Run `docker-compose exec app php artisan serve`
+    - Run `docker build -t app-name .`
 
 
 Authorization:
@@ -37,8 +36,8 @@ UI/UX:
     - Profile
         - Users can update their profile information (Name, Email, Password)
     - Validation:
-    - Toast Notifications:
-        - Toast notifications are displayed when a task is created, updated, or deleted.
+      - Validation is done on the frontend and backend.
+      - Application ensures all fields are being entered before submitting the form.
     - Error Handling:
         - Errors are displayed in a toast notification.
 
@@ -51,9 +50,11 @@ Running Tests:
 Docker:
     - Docker is used to run the project in a containerized environment. This is deployed on ECS.
     - Dockerfile sets the base image and docker compose is used to run both the frontend and backend.
+    - However, the docker compose is a template for the users information to enter and run the project, but project can be ran locally with mysql on docker.
 
 CI/CD:
     - Github Actions is used for CI/CD.
     - The workflow is triggered on push and pull requests.
     - The workflow runs the tests and deploys the project to ECS.
+
 

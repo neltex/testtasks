@@ -17,8 +17,8 @@ class TasksController extends Controller
 
 
         return Inertia::render("Dashboard", [
-            "task" => Task::where('user_id', Auth::id())->get(), // Fetch all tasks for the authenticated user
-            "message" => session('message') // Pass any session messages if needed
+            "task" => Task::where('user_id', Auth::id())->get(),
+            "message" => session('message')
         ]);
     }
     /**
@@ -33,7 +33,7 @@ class TasksController extends Controller
         ]);
 
         $task = new Task($validated);
-        $task->user_id = Auth::id(); // Associate with the authenticated user
+        $task->user_id = Auth::id(); 
         $task->save();
 
         return redirect()->route('tasks.index')->with('success', 'Task created successfully.');
@@ -52,7 +52,7 @@ class TasksController extends Controller
             'due_date' => 'required|date',
             'status' => 'required|in:pending,in_progress,completed',
         ]);
-        $task->user_id = Auth::id(); // Associate with authorized user
+        $task->user_id = Auth::id();
         $task->update($validated);
 
         return redirect()->route('tasks.index')->with('success', 'Task updated successfully.');
@@ -60,8 +60,7 @@ class TasksController extends Controller
 
     public function destroy(Task $task)
     {
-        // Ensure the task belongs to the authenticated user
-        $task->user_id = Auth::id(); // Associate with authorized user
+        $task->user_id = Auth::id();
         $task->delete();
 
         return redirect()->route('tasks.index')->with('success', 'Task deleted successfully.');

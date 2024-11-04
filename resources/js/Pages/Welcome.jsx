@@ -14,29 +14,20 @@ export default function Welcome({ auth, laravelVersion, phpVersion }) {
                         </header>
                         <main className="flex justify-center items-center">
                             <nav className="flex flex-row gap-3 mt-5">
-                                {auth.user ? (
+                                <>
                                     <Link
-                                        href={route("app")}
-                                        className="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
+                                        href={route("login")}
+                                        className="rounded-md  text-center w-36 px-3 py-2 text-white bg-black ring-1 ring-transparent transition  focus:outline-none focus-visible:ring-[#FF2D20]  dark:focus-visible:ring-white"
                                     >
-                                        Home
+                                        Log in
                                     </Link>
-                                ) : (
-                                    <>
-                                        <Link
-                                            href={route("login")}
-                                            className="rounded-md  text-center w-36 px-3 py-2 text-white bg-black ring-1 ring-transparent transition  focus:outline-none focus-visible:ring-[#FF2D20]  dark:focus-visible:ring-white"
-                                        >
-                                            Log in
-                                        </Link>
-                                        <Link
-                                            href={route("register")}
-                                            className="rounded-md w-36 text-center px-3 py-2 text-white bg-black ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </Link>
-                                    </>
-                                )}
+                                    <Link
+                                        href={route("register")}
+                                        className="rounded-md w-36 text-center px-3 py-2 text-white bg-black ring-1 ring-transparent transition focus:outline-none focus-visible:ring-[#FF2D20] dark:focus-visible:ring-white"
+                                    >
+                                        Register
+                                    </Link>
+                                </>
                             </nav>
                         </main>
                         <footer className="py-16 text-center text-sm ">
