@@ -1,12 +1,15 @@
-Steps to run the project:
+**Steps** to run the project:
     - Clone the project
     - Run `npm install`
-    - Run `php artisan migrate`
+    - Run `php artisan migrate` (Must have MySQL installed)
     - Run `php artisan serve`
-    - Run `npm run dev or npm run watch`
+    - Run `npm run dev`
 
-    With Docker:
-    - Run `docker build -t app-name .`
+    With Docker (Recommended):
+    - Run `docker-compose up -d --build`
+    - Run `docker-compose exec -it laravel-app bash && rm -rf public/hot`
+    - View the project on `http://localhost:8000`
+
 
 
 Authorization:
@@ -38,8 +41,11 @@ UI/UX:
     - Validation:
       - Validation is done on the frontend and backend.
       - Application ensures all fields are being entered before submitting the form.
+      - Progress bar is displayed when the form is being submitted.
     - Error Handling:
         - Errors are displayed in a toast notification.
+    - Build Tools:
+        - Vite.js is used to build the frontend and make it faster at build time.
 
 Running Tests:
     - Run `php artisan test` to run the tests
@@ -50,11 +56,9 @@ Running Tests:
 Docker:
     - Docker is used to run the project in a containerized environment. This is deployed on ECS.
     - Dockerfile sets the base image and docker compose is used to run both the frontend and backend.
-    - However, the docker compose is a template for the users information to enter and run the project, but project can be ran locally with mysql on docker.
+    - However, the docker compose is the structure to run the project with all of its services with different images inside one container.
 
 CI/CD:
     - Github Actions is used for CI/CD.
-    - The workflow is triggered on push and pull requests.
-    - The workflow runs the tests and deploys the project to ECS.
 
 

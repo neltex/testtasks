@@ -3,7 +3,8 @@
     "type": "module",
     "scripts": {
         "build": "vite build",
-        "dev": "vite"
+        "dev": "vite",
+        "serve": "vite preview"
     },
     "devDependencies": {
         "@headlessui/react": "^2.0.0",
@@ -26,5 +27,8 @@
         "@inertiajs/inertia-react": "^0.8.1",
         "lucide-react": "^0.454.0",
         "react-toastify": "^10.0.6"
-    }
+    },
+    "optionalDependencies": {
+    "@rollup/rollup-linux-x64-gnu": "4.6.1"
+  }
 }
